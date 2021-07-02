@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ex2</title>
+</head>
+<body>
+    <h3>간단한 반복문</h3>
+    <ul>
+        <li th:each="dto, state : ${list}">
+            [[${state.index}]] --- [[${dto}]]
+        </li>
+    </ul>
+    <h3>제어문처리 - if</h3>
+    <ul>
+        <li th:each="dto, state : ${list}" th:if="${dto.sno % 5 == 0}">
+            [[${dto}]]
+        </li>
+    </ul>
+
+    <h3>제어문처리 - if, unless</h3>
+    <ul>
+        <li th:each="dto, state : ${list}">
+            <span th:if="${dto.sno % 5 == 0}" th:text="${'------------'+dto.sno}"></span>
+            <span th:unless="${dto.sno % 5 == 0}" th:text="${dto.first}"></span>
+        </li>
+    </ul>
+
+    <h3>제어문처리 - if, unless</h3>
+    <ul>
+        <li th:each="dto, state : ${list}">
+            <span th:if="${dto.sno % 5 == 0}" th:text="${'------------'+dto.sno}"></span>
+            <span th:unless="${dto.sno % 5 == 0}" th:text="${dto.first}"></span>
+        </li>
+    </ul>
+</body>
+</html>
