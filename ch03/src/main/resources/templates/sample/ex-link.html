@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exLink</title>
+</head>
+<body>
+<h3>link 처리</h3>
+<ul>
+    <li th:each="dto : ${list}">
+        <a th:href="@{/sample/ex-view(sno=${dto.sno})}">[[${dto}]]</a>
+        <br>
+        <a th:href="@{/sample/ex-view/{sno}(sno=${dto.sno})}">[[${dto}]]</a>
+    </li>
+</ul>
+<h3>기본객체와 LocalDateTime</h3>
+<ul>
+    <li th:each="dto : ${list}">
+        [[${#numbers.formatInteger(dto.sno, 5)}]] --- [[${#temporals.format(dto.regTime, 'yyyy/MM/dd')}]]
+    </li>
+</ul>
+</body>
+</html>
